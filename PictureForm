@@ -33,7 +33,7 @@ namespace Projekt
                 settings.GetSettings();
                 Description.GetDescriptionFromAFile();
                 lblFileName.Text = ImageList.SelectedImageName;
-                lblDescription.Text = Description.SelectedPictureDescription.Replace(ImageList.SelectedImageName + " - ", "");
+                lblDescription.Text = Description.SelectedPictureDescription.Replace(ImageList.SelectedImageName + " - ", ""); 
                 pbScreenshot.Image = Image.FromFile(settings.path + ImageList.SelectedImageName);
             }
             catch
