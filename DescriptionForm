@@ -47,7 +47,7 @@ namespace Projekt
     {
         Settings settings = new Settings();
         public string descriptionText { get; set; }
-        public static string SelectedPictureDescription = "";
+        public static string SelectedPictureDescription = "No description";
         public void WriteDescriptionToAFile()
         {
             settings.GetSettings();
@@ -55,7 +55,7 @@ namespace Projekt
             if (File.Exists("description.txt"))
             {
                 sw = File.AppendText("description.txt");
-                switch(settings.sIndex)
+                switch (settings.sIndex)
                 {
                     case 0:
                         {
@@ -88,7 +88,7 @@ namespace Projekt
         {
             if (File.Exists("description.txt"))
             {
-                string s = "";
+                string s;
                 StreamReader sr = new StreamReader("description.txt");
                 do
                 {
@@ -102,11 +102,6 @@ namespace Projekt
                     }
                 } while (!(string.IsNullOrEmpty(s)));
                 sr.Close();
-
-            }
-            else
-            {
-                SelectedPictureDescription = "No description";
             }
         }
     }
