@@ -1,0 +1,7 @@
+slika
+8
+C:\C#\Projekt\
+False
+2
+0
+True

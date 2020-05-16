@@ -1,0 +1,13 @@
+C:\Users\Zoli\Desktop\Forms\Projekt\bin\Debug\Projekt.exe.config
+C:\Users\Zoli\Desktop\Forms\Projekt\bin\Debug\Projekt.exe
+C:\Users\Zoli\Desktop\Forms\Projekt\bin\Debug\Projekt.pdb
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.csprojAssemblyReference.cache
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.Properties.Resources.resources
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.csproj.GenerateResource.cache
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.exe
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.pdb
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.MainForm.resources
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.SettingsForm.resources
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.DescriptionDialog.resources
+C:\Users\Zoli\Desktop\Forms\Projekt\obj\Debug\Projekt.PictureForm.resources
