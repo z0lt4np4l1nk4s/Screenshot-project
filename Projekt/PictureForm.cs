@@ -13,6 +13,7 @@ namespace Projekt
     public partial class PictureForm : Form
     {
         Settings settings = new Settings();
+        MainForm mf = new MainForm();
         public PictureForm()
         {
             InitializeComponent();
@@ -21,9 +22,7 @@ namespace Projekt
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm mf = new MainForm();
-            mf.Show();
-
+            MainForm.mainForm.Show();
         }
 
         private void PictureForm_Load(object sender, EventArgs e)

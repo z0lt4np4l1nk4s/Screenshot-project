@@ -73,8 +73,7 @@ namespace Projekt
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm form = new MainForm();
-            form.Show();
+            MainForm.mainForm.Show();
         }
         
 
