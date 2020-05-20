@@ -18,6 +18,7 @@ namespace Projekt
     {
         Settings settings = new Settings();
         public static MainForm mainForm;
+        bool setSettingsClicked = true;
 
         public MainForm()
         {
@@ -55,7 +56,8 @@ namespace Projekt
         private void btnSettings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            settings.SetSettings();
+            if (setSettingsClicked) settings.SetSettings();
+            setSettingsClicked = false;
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
         }

@@ -43,21 +43,21 @@
             this.s = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbDescDisable = new System.Windows.Forms.RadioButton();
+            this.rbDescEnable = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.numStartNumber = new System.Windows.Forms.NumericUpDown();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rbDisable = new System.Windows.Forms.RadioButton();
-            this.rbEnable = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSeconds)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -216,6 +216,50 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbDescDisable);
+            this.groupBox3.Controls.Add(this.rbDescEnable);
+            this.groupBox3.Location = new System.Drawing.Point(530, 274);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 47);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            // 
+            // rbDescDisable
+            // 
+            this.rbDescDisable.AutoSize = true;
+            this.rbDescDisable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDescDisable.Location = new System.Drawing.Point(114, 11);
+            this.rbDescDisable.Name = "rbDescDisable";
+            this.rbDescDisable.Size = new System.Drawing.Size(80, 24);
+            this.rbDescDisable.TabIndex = 1;
+            this.rbDescDisable.TabStop = true;
+            this.rbDescDisable.Text = "Disable";
+            this.rbDescDisable.UseVisualStyleBackColor = true;
+            // 
+            // rbDescEnable
+            // 
+            this.rbDescEnable.AutoSize = true;
+            this.rbDescEnable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDescEnable.Location = new System.Drawing.Point(6, 11);
+            this.rbDescEnable.Name = "rbDescEnable";
+            this.rbDescEnable.Size = new System.Drawing.Size(77, 24);
+            this.rbDescEnable.TabIndex = 0;
+            this.rbDescEnable.TabStop = true;
+            this.rbDescEnable.Text = "Enable";
+            this.rbDescEnable.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(435, 287);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 20);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Description";
+            // 
             // cbType
             // 
             this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -276,50 +320,6 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbDisable);
-            this.groupBox3.Controls.Add(this.rbEnable);
-            this.groupBox3.Location = new System.Drawing.Point(530, 274);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 47);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            // 
-            // rbDisable
-            // 
-            this.rbDisable.AutoSize = true;
-            this.rbDisable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDisable.Location = new System.Drawing.Point(114, 11);
-            this.rbDisable.Name = "rbDisable";
-            this.rbDisable.Size = new System.Drawing.Size(80, 24);
-            this.rbDisable.TabIndex = 1;
-            this.rbDisable.TabStop = true;
-            this.rbDisable.Text = "Disable";
-            this.rbDisable.UseVisualStyleBackColor = true;
-            // 
-            // rbEnable
-            // 
-            this.rbEnable.AutoSize = true;
-            this.rbEnable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEnable.Location = new System.Drawing.Point(6, 11);
-            this.rbEnable.Name = "rbEnable";
-            this.rbEnable.Size = new System.Drawing.Size(77, 24);
-            this.rbEnable.TabIndex = 0;
-            this.rbEnable.TabStop = true;
-            this.rbEnable.Text = "Enable";
-            this.rbEnable.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(435, 287);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 20);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Description";
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,9 +340,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSeconds)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,8 +371,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton rbDisable;
-        private System.Windows.Forms.RadioButton rbEnable;
+        private System.Windows.Forms.RadioButton rbDescDisable;
+        private System.Windows.Forms.RadioButton rbDescEnable;
         private System.Windows.Forms.Label label7;
     }
 }

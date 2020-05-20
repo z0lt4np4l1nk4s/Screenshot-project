@@ -72,6 +72,14 @@ namespace Projekt
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            settings.GetSettings();
+            if (txtFileName.Text != settings.fName || numStartNumber.Value != settings.numb || lblSaveFolder.Text != settings.path || rbYes.Checked != settings.check || numSeconds.Value != settings.seconds || cbType.SelectedIndex != settings.sIndex || rbDescEnable.Checked != settings.description)
+            {
+                if (MessageBox.Show("You have some unsaved changes, do you want to save them?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SaveDetails();
+                }
+            }
             this.Hide();
             MainForm.mainForm.Show();
         }
@@ -85,7 +93,7 @@ namespace Projekt
             settings.check = rbYes.Checked;
             settings.seconds = (int)numSeconds.Value;
             settings.sIndex = cbType.SelectedIndex;
-            settings.description = rbEnable.Checked;
+            settings.description = rbDescEnable.Checked;
             settings.SetSettings();
         }
 
@@ -105,14 +113,14 @@ namespace Projekt
             }
             numSeconds.Value = settings.seconds;
             cbType.SelectedItem = cbType.Items[settings.sIndex];
-            rbEnable.Checked = settings.description;
-            if (rbEnable.Checked)
+            rbDescEnable.Checked = settings.description;
+            if (rbDescEnable.Checked)
             {
-                rbDisable.Checked = false;
+                rbDescDisable.Checked = false;
             }
             else
             {
-                rbDisable.Checked = true;
+                rbDescDisable.Checked = true;
             }
         }
 
