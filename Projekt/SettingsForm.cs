@@ -14,6 +14,7 @@ namespace Projekt
     public partial class SettingsForm : Form
     {
         Settings settings = new Settings();
+        bool sIChanged = false;
         public SettingsForm()
         {
             InitializeComponent();
@@ -37,7 +38,13 @@ namespace Projekt
             cbType.Items.Add("JPEG (*.jpg)");
             cbType.Items.Add("BITMAP (*.bmp)");
             cbType.Items.Add("PNG (*.png)");
-            settings.GetSettings();
+            cbSettingsFileType.Items.Add("JSON");
+            cbSettingsFileType.Items.Add("XML");
+            settings.GetJSONSettings();
+            if (settings.settingsFileType == 1)
+            {
+                settings.GetXMLSettings();
+            }
             LoadDetails();
         }
 
@@ -72,8 +79,7 @@ namespace Projekt
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            settings.GetSettings();
-            if (txtFileName.Text != settings.fName || numStartNumber.Value != settings.numb || lblSaveFolder.Text != settings.path || rbYes.Checked != settings.check || numSeconds.Value != settings.seconds || cbType.SelectedIndex != settings.sIndex || rbDescEnable.Checked != settings.description)
+            if (txtFileName.Text != settings.fName || numStartNumber.Value != settings.numb || lblSaveFolder.Text != settings.path || rbYes.Checked != settings.check || numSeconds.Value != settings.seconds || cbType.SelectedIndex != settings.sIndex || rbDescEnable.Checked != settings.description || cbSettingsFileType.SelectedIndex != settings.settingsFileType)
             {
                 if (MessageBox.Show("You have some unsaved changes, do you want to save them?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -94,11 +100,30 @@ namespace Projekt
             settings.seconds = (int)numSeconds.Value;
             settings.sIndex = cbType.SelectedIndex;
             settings.description = rbDescEnable.Checked;
-            settings.SetSettings();
+            settings.settingsFileType = cbSettingsFileType.SelectedIndex;
+            if(settings.settingsFileType == 0)
+            {
+                settings.SetJSONSettings(settings);
+            }
+            else
+            {
+                settings.SetXMLSettings(settings);
+            }
         }
 
         private void LoadDetails()
         {
+            if (sIChanged)
+            {
+                if (settings.settingsFileType == 0)
+                {
+                    settings.GetJSONSettings();
+                }
+                else
+                {
+                    settings.GetXMLSettings();
+                }
+            }
             txtFileName.Text = settings.fName;
             numStartNumber.Value = settings.numb;
             lblSaveFolder.Text = settings.path;
@@ -122,11 +147,34 @@ namespace Projekt
             {
                 rbDescDisable.Checked = true;
             }
+            cbSettingsFileType.SelectedItem = cbSettingsFileType.Items[settings.settingsFileType];
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cbSettingsFileType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sIChanged)
+            {
+                settings.settingsFileType = cbSettingsFileType.SelectedIndex;
+                if (cbSettingsFileType.SelectedIndex == 1)
+                {
+                    settings.GetJSONSettings();
+                    settings.settingsFileType = cbSettingsFileType.SelectedIndex;
+                    settings.SetJSONSettings(settings);
+                }
+                else
+                {
+                    settings.GetJSONSettings();
+                    settings.settingsFileType = cbSettingsFileType.SelectedIndex;
+                    settings.SetJSONSettings(settings);
+                }
+                LoadDetails();
+            }
+            sIChanged = true;
         }
     }
 }

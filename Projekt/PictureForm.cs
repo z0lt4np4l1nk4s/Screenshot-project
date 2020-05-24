@@ -13,7 +13,6 @@ namespace Projekt
     public partial class PictureForm : Form
     {
         Settings settings = new Settings();
-        MainForm mf = new MainForm();
         public PictureForm()
         {
             InitializeComponent();
@@ -29,7 +28,11 @@ namespace Projekt
         {
             try
             {
-                settings.GetSettings();
+                settings.GetJSONSettings();
+                if (settings.settingsFileType == 1)
+                {
+                    settings.GetXMLSettings();
+                }
                 Description.GetDescriptionFromAFile();
                 lblFileName.Text = ImageList.SelectedImageName;
                 lblDescription.Text = Description.SelectedPictureDescription.Replace(ImageList.SelectedImageName + " - ", ""); 

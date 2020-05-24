@@ -43,6 +43,8 @@
             this.s = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbSettingsFileType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbDescDisable = new System.Windows.Forms.RadioButton();
             this.rbDescEnable = new System.Windows.Forms.RadioButton();
@@ -194,6 +196,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbSettingsFileType);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cbType);
@@ -215,6 +219,26 @@
             this.groupBox2.Size = new System.Drawing.Size(776, 339);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // cbSettingsFileType
+            // 
+            this.cbSettingsFileType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSettingsFileType.FormattingEnabled = true;
+            this.cbSettingsFileType.Location = new System.Drawing.Point(579, 219);
+            this.cbSettingsFileType.Name = "cbSettingsFileType";
+            this.cbSettingsFileType.Size = new System.Drawing.Size(173, 28);
+            this.cbSettingsFileType.TabIndex = 26;
+            this.cbSettingsFileType.SelectedIndexChanged += new System.EventHandler(this.cbSettingsFileType_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(441, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(130, 20);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Settings file type:";
             // 
             // groupBox3
             // 
@@ -374,5 +398,7 @@
         private System.Windows.Forms.RadioButton rbDescDisable;
         private System.Windows.Forms.RadioButton rbDescEnable;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbSettingsFileType;
     }
 }

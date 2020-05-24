@@ -14,7 +14,11 @@ namespace Projekt
         public static string SelectedPictureDescription = "No description";
         public void WriteDescriptionToAFile()
         {
-            settings.GetSettings();
+            settings.GetJSONSettings();
+            if (settings.settingsFileType == 1)
+            {
+                settings.GetXMLSettings();
+            }
             StreamWriter sw;
             if (File.Exists("description.txt"))
             {

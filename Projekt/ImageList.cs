@@ -17,7 +17,11 @@ namespace Projekt
             {
                 
                 Settings settings = new Settings();
-                settings.GetSettings();
+                settings.GetJSONSettings();
+                if (settings.settingsFileType == 1)
+                {
+                    settings.GetXMLSettings();
+                }
                 DirectoryInfo di = new DirectoryInfo(settings.path);
                 foreach (FileInfo fi in di.GetFiles())
                 {

@@ -27,12 +27,16 @@ namespace Projekt
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            settings.GetSettings();
             mainForm = this;
         }
 
         private void btnScreenshot_Click(object sender, EventArgs e)
         {
+            settings.GetJSONSettings();
+            if (settings.settingsFileType == 1)
+            {
+                settings.GetXMLSettings();
+            }
             this.Hide();
             timer.Interval = settings.seconds * 1000;
             timer.Start();
@@ -56,7 +60,17 @@ namespace Projekt
         private void btnSettings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            if (setSettingsClicked) settings.SetSettings();
+            if (setSettingsClicked)
+            {
+                if (settings.settingsFileType == 0)
+                {
+                    settings.GetJSONSettings();
+                }
+                else
+                {
+                    settings.GetXMLSettings();
+                }
+            }
             setSettingsClicked = false;
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
@@ -64,7 +78,14 @@ namespace Projekt
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            settings.SetSettings();
+            if (settings.settingsFileType == 0)
+            {
+                settings.SetJSONSettings(settings);
+            }
+            else
+            {
+                settings.SetXMLSettings(settings);
+            }
             Application.Exit();
         }
 
