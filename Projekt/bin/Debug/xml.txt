@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <fName>smth</fName>
+  <numb>1</numb>
+  <path>C:\Users\Zoli\Pictures\</path>
+  <check>false</check>
+  <seconds>3</seconds>
+  <sIndex>0</sIndex>
+  <description>false</description>
+</Settings>
