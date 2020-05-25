@@ -159,19 +159,9 @@ namespace Projekt
         {
             if (sIChanged)
             {
+                settings.GetJSONSettings();
                 settings.settingsFileType = cbSettingsFileType.SelectedIndex;
-                if (cbSettingsFileType.SelectedIndex == 1)
-                {
-                    settings.GetJSONSettings();
-                    settings.settingsFileType = cbSettingsFileType.SelectedIndex;
-                    settings.SetJSONSettings(settings);
-                }
-                else
-                {
-                    settings.GetJSONSettings();
-                    settings.settingsFileType = cbSettingsFileType.SelectedIndex;
-                    settings.SetJSONSettings(settings);
-                }
+                settings.SetJSONSettings(settings);
                 LoadDetails();
             }
             sIChanged = true;
