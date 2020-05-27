@@ -8,9 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Drawing.Imaging;
-using System.Runtime.CompilerServices;
 
 namespace Projekt
 {
@@ -18,7 +15,6 @@ namespace Projekt
     {
         Settings settings = new Settings();
         public static MainForm mainForm;
-        bool setSettingsClicked = true;
         bool showList = true;
 
         public MainForm()
@@ -56,6 +52,14 @@ namespace Projekt
                 dd.ShowDialog();
             }
             settings.numb++;
+            if (settings.settingsFileType == 1)
+            {
+                settings.SetXMLSettings(settings);
+            }
+            else
+            {
+                settings.SetJSONSettings(settings);
+            }
             this.Show();
         }
 
@@ -63,18 +67,6 @@ namespace Projekt
         {
             ListToDefault();
             this.Hide();
-            if (setSettingsClicked)
-            {
-                if (settings.settingsFileType == 0)
-                {
-                    settings.GetJSONSettings();
-                }
-                else
-                {
-                    settings.GetXMLSettings();
-                }
-            }
-            setSettingsClicked = false;
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
         }
