@@ -19,6 +19,7 @@ namespace Projekt
         Settings settings = new Settings();
         public static MainForm mainForm;
         bool setSettingsClicked = true;
+        bool showList = true;
 
         public MainForm()
         {
@@ -32,6 +33,7 @@ namespace Projekt
 
         private void btnScreenshot_Click(object sender, EventArgs e)
         {
+            ListToDefault();
             settings.GetJSONSettings();
             if (settings.settingsFileType == 1)
             {
@@ -59,6 +61,7 @@ namespace Projekt
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            ListToDefault();
             this.Hide();
             if (setSettingsClicked)
             {
@@ -91,13 +94,24 @@ namespace Projekt
 
         private void btnShowPictureList_Click(object sender, EventArgs e)
         {
-            ImageList imageList = new ImageList();
-            foreach(string s in imageList.imgList)
+            if (showList)
             {
-                listImage.Items.Add(s);
+                btnShowPictureList.Text = "Hide list";
+                ImageList imageList = new ImageList();
+                foreach (string s in imageList.imgList)
+                {
+                    listImage.Items.Add(s);
+                }
+                listImage.Visible = true;
+                showList = false;
             }
-
-            listImage.Visible = true;
+            else
+            {
+                btnShowPictureList.Text = "Show picture list";
+                listImage.Visible = false;
+                showList = true;
+                listImage.Items.Clear();
+            }           
         }
 
         private void listImage_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -106,6 +120,7 @@ namespace Projekt
             if (!(string.IsNullOrEmpty(ImageList.SelectedImageName)))
             {
                 this.Hide();
+                ListToDefault();
                 PictureForm pictureForm = new PictureForm();
                 pictureForm.Show();
             }
@@ -113,6 +128,14 @@ namespace Projekt
             {
                 MessageBox.Show("Invalid select", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ListToDefault()
+        {
+            listImage.Visible = false;
+            btnShowPictureList.Text = "Show picture list";
+            showList = true;
+            listImage.Items.Clear();
         }
     }       
 }
