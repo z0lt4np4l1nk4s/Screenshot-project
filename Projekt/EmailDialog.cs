@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Projekt
 {
@@ -24,12 +25,28 @@ namespace Projekt
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (CheckIfEverythingIsOK())
+            Regex rx = new Regex(@"^[a-z0-9_\-\.]{3,20}@[a-z]{1,10}.[a-z]{2,4}$");
+            if (txtFromEmail.Text == "" || txtPassword.Text == "" || txtToEmail.Text == "")
             {
-                btnSend.Text = "Sending...";
-                btnSend.Refresh();
-                SendEmail();
-                this.Close();
+                MessageBox.Show("All fields must be filled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (rx.IsMatch(txtFromEmail.Text) && rx.IsMatch(txtToEmail.Text))
+                {
+                    if (CheckIfEverythingIsOK())
+                    {
+                        btnSend.Text = "Sending...";
+                        btnSend.Refresh();
+                        SendEmail();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid email adress!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPassword.Text = "";
+                }
             }
         }
 
