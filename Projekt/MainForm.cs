@@ -14,17 +14,38 @@ namespace Projekt
     public partial class MainForm : Form
     {
         Settings settings = new Settings();
+        LanguageClass language = new LanguageClass();
         public static MainForm mainForm;
         bool showList = true;
+        bool lang = false;
 
         public MainForm()
         {
             InitializeComponent();
+            settings.GetJSONSettings();
+            if (settings.settingsFileType == 1)
+            {
+                settings.GetXMLSettings();
+            }
+            LanguageClass.languagePath = "language\\" + settings.selectedLanguage + ".json";
+            language.GetMainFormText();
+            LoadText();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             mainForm = this;
+            int i = 0; 
+            cbLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+            foreach(string s in language.availableLanguages)
+            {
+                cbLanguage.Items.Add(s);
+                if((string)cbLanguage.Items[i] == settings.selectedLanguage)
+                {
+                    cbLanguage.SelectedIndex = i;
+                }
+                i++;
+            }
         }
 
         private void btnScreenshot_Click(object sender, EventArgs e)
@@ -88,7 +109,7 @@ namespace Projekt
         {
             if (showList)
             {
-                btnShowPictureList.Text = "Hide list";
+                btnShowPictureList.Text = language.btnHidePictures;
                 ImageList imageList = new ImageList();
                 foreach (string s in imageList.imgList)
                 {
@@ -99,7 +120,7 @@ namespace Projekt
             }
             else
             {
-                btnShowPictureList.Text = "Show picture list";
+                btnShowPictureList.Text = language.btnShowPictures;
                 listImage.Visible = false;
                 showList = true;
                 listImage.Items.Clear();
@@ -118,16 +139,37 @@ namespace Projekt
             }
             else
             {
-                MessageBox.Show("Invalid select", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(language.messageInvalidSelect, language.messageError, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void ListToDefault()
         {
             listImage.Visible = false;
-            btnShowPictureList.Text = "Show picture list";
+            btnShowPictureList.Text = language.btnShowPictures;
             showList = true;
             listImage.Items.Clear();
+        }
+
+        private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lang)
+            {
+                settings.selectedLanguage = cbLanguage.SelectedItem.ToString();
+                settings.SetJSONSettings(settings);
+                LanguageClass.languagePath = "language\\" + cbLanguage.SelectedItem + ".json";
+                language.GetMainFormText();
+                LoadText();
+            }
+            lang = true;
+        }
+
+        private void LoadText()
+        {
+            btnScreenshot.Text = language.btnScreenshot;
+            btnSettings.Text = language.Settings;
+            btnShowPictureList.Text = language.btnShowPictures;
+            lblLanguage.Text = language.language;
         }
     }       
 }

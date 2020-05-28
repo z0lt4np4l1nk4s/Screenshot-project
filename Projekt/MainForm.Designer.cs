@@ -35,6 +35,8 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.listImage = new System.Windows.Forms.ListBox();
             this.btnShowPictureList = new System.Windows.Forms.Button();
+            this.cbLanguage = new System.Windows.Forms.ComboBox();
+            this.lblLanguage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnScreenshot
@@ -86,11 +88,33 @@
             this.btnShowPictureList.UseVisualStyleBackColor = true;
             this.btnShowPictureList.Click += new System.EventHandler(this.btnShowPictureList_Click);
             // 
+            // cbLanguage
+            // 
+            this.cbLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLanguage.FormattingEnabled = true;
+            this.cbLanguage.Location = new System.Drawing.Point(730, 410);
+            this.cbLanguage.Name = "cbLanguage";
+            this.cbLanguage.Size = new System.Drawing.Size(58, 28);
+            this.cbLanguage.TabIndex = 4;
+            this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
+            // 
+            // lblLanguage
+            // 
+            this.lblLanguage.AutoSize = true;
+            this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLanguage.Location = new System.Drawing.Point(643, 413);
+            this.lblLanguage.Name = "lblLanguage";
+            this.lblLanguage.Size = new System.Drawing.Size(81, 20);
+            this.lblLanguage.TabIndex = 5;
+            this.lblLanguage.Text = "Language";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblLanguage);
+            this.Controls.Add(this.cbLanguage);
             this.Controls.Add(this.btnShowPictureList);
             this.Controls.Add(this.listImage);
             this.Controls.Add(this.btnSettings);
@@ -102,6 +126,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -112,6 +137,8 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.ListBox listImage;
         private System.Windows.Forms.Button btnShowPictureList;
+        private System.Windows.Forms.ComboBox cbLanguage;
+        private System.Windows.Forms.Label lblLanguage;
     }
 }
 

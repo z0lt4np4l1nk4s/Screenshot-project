@@ -16,9 +16,16 @@ namespace Projekt
     public partial class EmailDialog : Form
     {
         PictureForm pictureForm = new PictureForm();
+        LanguageClass language = new LanguageClass();
         public EmailDialog()
         {
             InitializeComponent();
+            language.GetEmailDialogText();
+            toolTip.SetToolTip(lblInfo, language.info);
+            lblYourEmail.Text = language.fromEmail;
+            lblPassword.Text = language.password;
+            lblTo.Text = language.toEmail;
+            lblSubject.Text = language.subject;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -26,7 +33,7 @@ namespace Projekt
             Regex rx = new Regex(@"^[a-z0-9_\-\.]{3,20}@[a-z]{1,10}.[a-z]{2,4}$");
             if (txtFromEmail.Text == "" || txtPassword.Text == "" || txtToEmail.Text == "")
             {
-                MessageBox.Show("All fields must be filled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(language.messageAllFields, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -34,11 +41,11 @@ namespace Projekt
                 {
                     if (CheckIfEverythingIsOK())
                     {
-                        btnSend.Text = "Sending...";
+                        btnSend.Text = language.btnSending;
                         btnSend.Enabled = false;
                         btnSend.Refresh();
                         EmailClass.SendEmail(txtFromEmail.Text, txtPassword.Text, txtToEmail.Text, txtSubject.Text);
-                        btnSend.Text = "Send";
+                        btnSend.Text = language.btnSend;
                         btnSend.Enabled = true;
                         pictureForm.Activate();
                         this.Close();
@@ -46,7 +53,7 @@ namespace Projekt
                 }
                 else
                 {
-                    MessageBox.Show("Invalid email adress!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(language.messageInvalidEmail, language.messageWarning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtPassword.Text = "";
                 }
             }
@@ -67,12 +74,12 @@ namespace Projekt
         {
             if (txtFromEmail.Text == "" || txtPassword.Text == "" || txtToEmail.Text == "")
             {
-                MessageBox.Show("All fields must be filled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(language.messageAllFields, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             else if (txtSubject.Text == "")
             {
-                if (MessageBox.Show("Are you sure that you want to send the email without a subject?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(language.messageSendWithoutSubject, language.messageQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     txtSubject.Text = PictureForm.picName;
                     return true;

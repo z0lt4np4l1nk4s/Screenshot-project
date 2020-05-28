@@ -14,9 +14,14 @@ namespace Projekt
     public partial class DescriptionDialog : Form
     {
         Description description = new Description();
+        LanguageClass language = new LanguageClass();
         public DescriptionDialog()
         {
             InitializeComponent();
+            language.GetDescriptionDialogText();
+            lblEnterScreenshotDesc.Text = language.enterDescription;
+            lblWText.Text = language.errorDescription;
+            ActiveForm.Text = language.Description;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

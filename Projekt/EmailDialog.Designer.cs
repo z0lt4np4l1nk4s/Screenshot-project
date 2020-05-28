@@ -30,38 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailDialog));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
             this.btnSend = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtFromEmail = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblYourEmail = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.txtToEmail = new System.Windows.Forms.TextBox();
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // label1
+            // lblTo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "To:";
+            this.lblTo.AutoSize = true;
+            this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTo.Location = new System.Drawing.Point(12, 82);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(31, 20);
+            this.lblTo.TabIndex = 0;
+            this.lblTo.Text = "To:";
             // 
-            // label2
+            // lblSubject
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Subject:";
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.Location = new System.Drawing.Point(12, 114);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(67, 20);
+            this.lblSubject.TabIndex = 1;
+            this.lblSubject.Text = "Subject:";
             // 
             // btnSend
             // 
@@ -93,37 +93,37 @@
             this.txtFromEmail.TabIndex = 4;
             this.txtFromEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFromEmail_KeyPress);
             // 
-            // label3
+            // lblYourEmail
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Your email:";
+            this.lblYourEmail.AutoSize = true;
+            this.lblYourEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourEmail.Location = new System.Drawing.Point(12, 18);
+            this.lblYourEmail.Name = "lblYourEmail";
+            this.lblYourEmail.Size = new System.Drawing.Size(88, 20);
+            this.lblYourEmail.TabIndex = 5;
+            this.lblYourEmail.Text = "Your email:";
             // 
-            // label4
+            // lblPassword
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Password:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(12, 50);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(82, 20);
+            this.lblPassword.TabIndex = 6;
+            this.lblPassword.Text = "Password:";
             // 
-            // label5
+            // lblInfo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(404, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 24);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "   ";
-            this.toolTip.SetToolTip(this.label5, "Use your AAI@EduHr email!");
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Image = ((System.Drawing.Image)(resources.GetObject("lblInfo.Image")));
+            this.lblInfo.Location = new System.Drawing.Point(404, 15);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(25, 24);
+            this.lblInfo.TabIndex = 7;
+            this.lblInfo.Text = "   ";
+            this.toolTip.SetToolTip(this.lblInfo, "Use your AAI@EduHr email!");
             // 
             // txtToEmail
             // 
@@ -150,14 +150,14 @@
             this.ClientSize = new System.Drawing.Size(441, 197);
             this.Controls.Add(this.txtSubject);
             this.Controls.Add(this.txtToEmail);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblYourEmail);
             this.Controls.Add(this.txtFromEmail);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSubject);
+            this.Controls.Add(this.lblTo);
             this.Name = "EmailDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmailForm";
@@ -170,14 +170,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTo;
+        private System.Windows.Forms.Label lblSubject;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtFromEmail;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblYourEmail;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.TextBox txtToEmail;
         private System.Windows.Forms.TextBox txtSubject;
         private System.Windows.Forms.ToolTip toolTip;
