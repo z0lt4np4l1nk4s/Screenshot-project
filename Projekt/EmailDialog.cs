@@ -16,11 +16,9 @@ namespace Projekt
     public partial class EmailDialog : Form
     {
         PictureForm pictureForm = new PictureForm();
-        public static string picPath;
         public EmailDialog()
         {
             InitializeComponent();
-            this.Focus();
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -37,8 +35,12 @@ namespace Projekt
                     if (CheckIfEverythingIsOK())
                     {
                         btnSend.Text = "Sending...";
+                        btnSend.Enabled = false;
                         btnSend.Refresh();
-                        SendEmail();
+                        EmailClass.SendEmail(txtFromEmail.Text, txtPassword.Text, txtToEmail.Text, txtSubject.Text);
+                        btnSend.Text = "Send";
+                        btnSend.Enabled = true;
+                        pictureForm.Activate();
                         this.Close();
                     }
                 }
@@ -59,31 +61,6 @@ namespace Projekt
                     btnSend_Click(sender, e);
                 }
             }
-        }
-
-        private void SendEmail()
-        {
-            
-            try
-            {
-                
-                MailMessage mail = new MailMessage(txtFromEmail.Text, txtToEmail.Text, txtSubject.Text, PictureForm.picDescription);
-                string fpath = picPath + PictureForm.picName;
-                Attachment file = new Attachment(fpath);
-                mail.Attachments.Add(file);
-                SmtpClient client = new SmtpClient("smtp.skole.hr", 465);
-                client.Credentials = new NetworkCredential(txtFromEmail.Text, txtPassword.Text);
-                client.EnableSsl = true;
-                client.Send(mail);
-                MessageBox.Show("Email sended successfully", "Success");
-                Application.OpenForms[pictureForm.Name].Activate();
-                this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("An error occoured while sending the email, please try again later!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            btnSend.Text = "Send";
         }
 
         private bool CheckIfEverythingIsOK()

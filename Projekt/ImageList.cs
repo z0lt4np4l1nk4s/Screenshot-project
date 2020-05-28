@@ -15,14 +15,13 @@ namespace Projekt
         {
             get
             {
-                EmailDialog.picPath = "";
                 Settings settings = new Settings();
                 settings.GetJSONSettings();
                 if (settings.settingsFileType == 1)
                 {
                     settings.GetXMLSettings();
                 }
-                EmailDialog.picPath = settings.path;
+                EmailClass.picPath = settings.path;
                 DirectoryInfo di = new DirectoryInfo(settings.path);
                 foreach (FileInfo fi in di.GetFiles())
                 {
