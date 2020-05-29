@@ -14,6 +14,7 @@ namespace Projekt
     public partial class DescriptionDialog : Form
     {
         Description description = new Description();
+
         LanguageClass language = new LanguageClass();
         public DescriptionDialog()
         {
@@ -21,7 +22,7 @@ namespace Projekt
             language.GetDescriptionDialogText();
             lblEnterScreenshotDesc.Text = language.enterDescription;
             lblWText.Text = language.errorDescription;
-            ActiveForm.Text = language.Description;
+            this.Name = language.Description.Replace(":", "");
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -29,7 +30,6 @@ namespace Projekt
             if (txtDescription.Text == "")
             {
                 lblWText.Visible = true;
-                Console.Beep();
             }
             else
             {

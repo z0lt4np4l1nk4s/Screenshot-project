@@ -69,7 +69,7 @@
             this.btnSend.Location = new System.Drawing.Point(313, 158);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(116, 30);
-            this.btnSend.TabIndex = 2;
+            this.btnSend.TabIndex = 5;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -80,7 +80,7 @@
             this.txtPassword.Location = new System.Drawing.Point(106, 47);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(290, 26);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
@@ -90,7 +90,7 @@
             this.txtFromEmail.Location = new System.Drawing.Point(106, 15);
             this.txtFromEmail.Name = "txtFromEmail";
             this.txtFromEmail.Size = new System.Drawing.Size(290, 26);
-            this.txtFromEmail.TabIndex = 4;
+            this.txtFromEmail.TabIndex = 1;
             this.txtFromEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFromEmail_KeyPress);
             // 
             // lblYourEmail
@@ -131,7 +131,7 @@
             this.txtToEmail.Location = new System.Drawing.Point(106, 79);
             this.txtToEmail.Name = "txtToEmail";
             this.txtToEmail.Size = new System.Drawing.Size(290, 26);
-            this.txtToEmail.TabIndex = 8;
+            this.txtToEmail.TabIndex = 3;
             this.txtToEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtToEmail_KeyPress);
             // 
             // txtSubject
@@ -140,7 +140,7 @@
             this.txtSubject.Location = new System.Drawing.Point(106, 111);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(290, 26);
-            this.txtSubject.TabIndex = 9;
+            this.txtSubject.TabIndex = 4;
             this.txtSubject.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubject_KeyPress);
             // 
             // EmailDialog

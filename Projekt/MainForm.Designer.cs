@@ -92,9 +92,9 @@
             // 
             this.cbLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLanguage.FormattingEnabled = true;
-            this.cbLanguage.Location = new System.Drawing.Point(730, 410);
+            this.cbLanguage.Location = new System.Drawing.Point(721, 410);
             this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.Size = new System.Drawing.Size(58, 28);
+            this.cbLanguage.Size = new System.Drawing.Size(67, 28);
             this.cbLanguage.TabIndex = 4;
             this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
             // 
@@ -102,7 +102,7 @@
             // 
             this.lblLanguage.AutoSize = true;
             this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLanguage.Location = new System.Drawing.Point(643, 413);
+            this.lblLanguage.Location = new System.Drawing.Point(634, 413);
             this.lblLanguage.Name = "lblLanguage";
             this.lblLanguage.Size = new System.Drawing.Size(81, 20);
             this.lblLanguage.TabIndex = 5;

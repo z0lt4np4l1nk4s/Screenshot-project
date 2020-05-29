@@ -69,6 +69,9 @@ namespace Projekt
         public string messagePictureNotFound { get; set; }
         public string messageInvalidEmail { get; set; }
         public string messageSendWithoutSubject { get; set; }
+        public string messageEmailSendingError { get; set; }
+        public string messageEmailSuccess { get; set; }
+        public string messageScreenshotError { get; set; }
 
         public string messageWarning { get; set; }
         public string messageQuestion { get; set; }
@@ -116,6 +119,8 @@ namespace Projekt
             messageUnsavedChanges = "You have some unsaved changes, do you want to save them?";
             messagePictureNotFound = "Picture not found!";
             messageSendWithoutSubject = "Are you sure that you want to send the email without a subject?";
+            messageEmailSendingError = "An error occoured while sending the email, please try again later!";
+            messageEmailSuccess = "Email sended successfully";
             messageInvalidEmail = "Invalid email adress!";
             messageWarning = "Warning";
             messageQuestion = "Question";
@@ -125,28 +130,47 @@ namespace Projekt
 
         public void GetDescriptionDialogText()
         {
-            JObject jObject = JObject.Parse(File.ReadAllText(languagePath));
-            Description = (string)jObject["Description"];
-            enterDescription = (string)jObject["enterDescription"];
-            errorDescription = (string)jObject["errorDescription"];
+            if (File.Exists(languagePath))
+            {
+                JObject jObject = JObject.Parse(File.ReadAllText(languagePath));
+                Description = (string)jObject["Description"];
+                enterDescription = (string)jObject["enterDescription"];
+                errorDescription = (string)jObject["errorDescription"];
+            }
+        }
+
+        public void GetScreenshotText()
+        {
+            if (File.Exists(languagePath))
+            {
+                JObject jObject = JObject.Parse(File.ReadAllText(languagePath));
+                messageScreenshotError = (string)jObject["messageScreenshotError"];
+                messageError = (string)jObject["messageError"];
+            }
         }
 
         public void GetEmailDialogText()
         {
-            JObject jObject = JObject.Parse(File.ReadAllText(languagePath));
-            fromEmail = (string)jObject["fromEmail"];
-            password = (string)jObject["password"];
-            toEmail = (string)jObject["toEmail"];
-            subject = (string)jObject["subject"];
-            btnSend = (string)jObject["btnSend"];
-            btnSending = (string)jObject["btnSending"];
-            info = (string)jObject["info"];
-            messageAllFields = (string)jObject["messageAllFields"];
-            messageSendWithoutSubject = (string)jObject["messageSendWithoutSubject"];
-            messageInvalidEmail = (string)jObject["messageInvalidEmail"];
-            messageQuestion = (string)jObject["messageQuestion"];
-            messageInformation = (string)jObject["messageInformation"];
-            messageWarning = (string)jObject["messageWarning"];
+            if (File.Exists(languagePath))
+            {
+                JObject jObject = JObject.Parse(File.ReadAllText(languagePath));
+                fromEmail = (string)jObject["fromEmail"];
+                password = (string)jObject["password"];
+                toEmail = (string)jObject["toEmail"];
+                subject = (string)jObject["subject"];
+                btnSend = (string)jObject["btnSend"];
+                btnSending = (string)jObject["btnSending"];
+                info = (string)jObject["info"];
+                messageAllFields = (string)jObject["messageAllFields"];
+                messageSendWithoutSubject = (string)jObject["messageSendWithoutSubject"];
+                messageEmailSendingError = (string)jObject["messageEmailSendingError"];
+                messageEmailSuccess = (string)jObject["messageEmailSuccess"];
+                messageInvalidEmail = (string)jObject["messageInvalidEmail"];
+                messageQuestion = (string)jObject["messageQuestion"];
+                messageInformation = (string)jObject["messageInformation"];
+                messageWarning = (string)jObject["messageWarning"];
+                messageError = (string)jObject["messageError"];
+            }
         }
 
         public void GetMainFormText()

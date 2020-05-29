@@ -22,6 +22,7 @@ namespace Projekt
         public MainForm()
         {
             InitializeComponent();
+            settings.SetXMLSettings(settings);
             settings.GetJSONSettings();
             if (settings.settingsFileType == 1)
             {

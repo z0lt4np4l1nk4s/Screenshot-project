@@ -11,9 +11,11 @@ namespace Projekt
 {
     class EmailClass
     {
+        LanguageClass language = new LanguageClass();
         public static string picPath;
-        public static void SendEmail(string fromEmail, string password, string toEmail, string subject)
+        public void SendEmail(string fromEmail, string password, string toEmail, string subject)
         {
+            language.GetEmailDialogText();
             try
             {
                 MailMessage mail = new MailMessage(fromEmail, toEmail, subject, PictureForm.picDescription);
@@ -24,11 +26,11 @@ namespace Projekt
                 client.Credentials = new NetworkCredential(fromEmail, password);
                 client.EnableSsl = true;
                 client.Send(mail);
-                MessageBox.Show("Email sended successfully", "Success");
+                MessageBox.Show(language.messageEmailSuccess, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
-                MessageBox.Show("An error occoured while sending the email, please try again later!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(language.messageEmailSendingError, language.messageError, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

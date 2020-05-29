@@ -17,6 +17,7 @@ namespace Projekt
     {
         PictureForm pictureForm = new PictureForm();
         LanguageClass language = new LanguageClass();
+        EmailClass email = new EmailClass();
         public EmailDialog()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Projekt
             lblPassword.Text = language.password;
             lblTo.Text = language.toEmail;
             lblSubject.Text = language.subject;
+            lblYourEmail.Focus();
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace Projekt
                         btnSend.Text = language.btnSending;
                         btnSend.Enabled = false;
                         btnSend.Refresh();
-                        EmailClass.SendEmail(txtFromEmail.Text, txtPassword.Text, txtToEmail.Text, txtSubject.Text);
+                        email.SendEmail(txtFromEmail.Text, txtPassword.Text, txtToEmail.Text, txtSubject.Text);
                         btnSend.Text = language.btnSend;
                         btnSend.Enabled = true;
                         pictureForm.Activate();

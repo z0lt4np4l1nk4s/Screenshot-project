@@ -10,8 +10,9 @@ namespace Projekt
     class Description
     {
         Settings settings = new Settings();
+        LanguageClass language = new LanguageClass();
         public string descriptionText { get; set; }
-        public static string SelectedPictureDescription = "No description";
+        public static string SelectedPictureDescription;
         public void WriteDescriptionToAFile()
         {
             settings.GetJSONSettings();
@@ -19,6 +20,7 @@ namespace Projekt
             {
                 settings.GetXMLSettings();
             }
+            language.GetDescriptionDialogText();
             StreamWriter sw;
             if (File.Exists("description.txt"))
             {
@@ -41,7 +43,6 @@ namespace Projekt
                             break;
                         }
                 }
-                sw.WriteLine(settings.fName + "_" + settings.numb + " - " + descriptionText);
                 sw.Close();
             }
             else
@@ -52,7 +53,7 @@ namespace Projekt
             }
         }
 
-        public static void GetDescriptionFromAFile()
+        public void GetDescriptionFromAFile()
         {
             if (File.Exists("description.txt"))
             {
@@ -69,6 +70,10 @@ namespace Projekt
                         }
                     }
                 } while (!(string.IsNullOrEmpty(s)));
+                if (string.IsNullOrEmpty(SelectedPictureDescription))
+                {
+                    SelectedPictureDescription = language.defaultDescription;
+                }
                 sr.Close();
             }
         }
