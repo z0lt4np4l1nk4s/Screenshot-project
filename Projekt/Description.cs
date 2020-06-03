@@ -11,7 +11,6 @@ namespace Projekt
     {
         Settings settings = new Settings();
         LanguageClass language = new LanguageClass();
-        public string descriptionText { get; set; }
         public static string SelectedPictureDescription;
         public void WriteDescriptionToAFile()
         {
@@ -25,24 +24,7 @@ namespace Projekt
             if (File.Exists("description.txt"))
             {
                 sw = File.AppendText("description.txt");
-                switch (settings.sIndex)
-                {
-                    case 0:
-                        {
-                            sw.WriteLine(settings.fName + "_" + settings.numb + ".jpg" + " - " + descriptionText);
-                            break;
-                        }
-                    case 1:
-                        {
-                            sw.WriteLine(settings.fName + "_" + settings.numb + ".bmp" + " - " + descriptionText);
-                            break;
-                        }
-                    case 2:
-                        {
-                            sw.WriteLine(settings.fName + "_" + settings.numb + ".png" + " - " + descriptionText);
-                            break;
-                        }
-                }
+                sw.WriteLine(EmailClass.picPath + EmailClass.picName + " - " + EmailClass.picDescription);
                 sw.Close();
             }
             else
@@ -64,7 +46,7 @@ namespace Projekt
                     s = sr.ReadLine();
                     if (!string.IsNullOrEmpty(s))
                     {
-                        if (s.Contains(ImageList.SelectedImageName))
+                        if (s.Contains(EmailClass.picPath + ImageList.SelectedImageName))
                         {
                             SelectedPictureDescription = s;
                         }

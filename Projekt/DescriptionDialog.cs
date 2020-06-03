@@ -14,12 +14,12 @@ namespace Projekt
     public partial class DescriptionDialog : Form
     {
         Description description = new Description();
-
         LanguageClass language = new LanguageClass();
         public DescriptionDialog()
         {
             InitializeComponent();
             language.GetDescriptionDialogText();
+            txtDescription.Focus();
             lblEnterScreenshotDesc.Text = language.enterDescription;
             lblWText.Text = language.errorDescription;
             this.Name = language.Description.Replace(":", "");
@@ -33,7 +33,7 @@ namespace Projekt
             }
             else
             {
-                description.descriptionText = txtDescription.Text;
+                EmailClass.picDescription = txtDescription.Text;
                 description.WriteDescriptionToAFile();
                 this.Hide();
             }

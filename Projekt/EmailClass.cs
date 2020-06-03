@@ -17,17 +17,14 @@ namespace Projekt
         LanguageClass language = new LanguageClass();
         public static string picPath;
         public static string picName;
+        public static string picDescription = "";
         
         public void SendEmail(string fromEmail, string password, string toEmail, string subject)
         {
             language.GetEmailDialogText();
             try
             {
-                if (PictureForm.picDescription == language.defaultDescription)
-                {
-                    PictureForm.picDescription = "";
-                }
-                MailMessage mail = new MailMessage(fromEmail, toEmail, subject, PictureForm.picDescription);
+                MailMessage mail = new MailMessage(fromEmail, toEmail, subject, picDescription);
                 string fpath = picPath + picName;
                 MemoryStream memoryStream = new MemoryStream();
                 ZipArchive zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create);

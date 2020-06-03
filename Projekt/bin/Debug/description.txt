@@ -1,4 +1,3 @@
-Untitled_1.jpg - C# code shot
-slika_6.jpg - Current code
-slika_7.jpg - ok
-kep_1.jpg - Próba
+C:\Users\Zoli\Desktop\tt\sl_1.jpg - I am just testing this!
+C:\Users\Zoli\Desktop\tt\sl_3.jpg - First pic
+C:\Users\Zoli\Desktop\tt\sl_4.jpg - Second pic
