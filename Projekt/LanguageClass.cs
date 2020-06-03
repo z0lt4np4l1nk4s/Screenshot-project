@@ -11,7 +11,7 @@ namespace Projekt
 {
     class LanguageClass
     {
-        List<string> lang = new List<string>();
+        private List<string> lang = new List<string>();
         public List<string> availableLanguages
         {
             get
