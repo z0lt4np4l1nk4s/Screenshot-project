@@ -15,22 +15,21 @@ namespace Projekt
     {
         Settings settings = new Settings();
         LanguageClass language = new LanguageClass();
+        EmailClass emailClass = new EmailClass();
         public static MainForm mainForm;
         bool showList = true;
         bool lang = false;
+        public static string fromEmail, password, toEmail, subject;
 
         public MainForm()
         {
             InitializeComponent();
-            settings.SetXMLSettings(settings);
             settings.GetJSONSettings();
             if (settings.settingsFileType == 1)
             {
                 settings.GetXMLSettings();
             }
             LanguageClass.languagePath = "language\\" + settings.selectedLanguage + ".json";
-            language.GetMainFormText();
-            LoadText();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,6 +46,8 @@ namespace Projekt
                 }
                 i++;
             }
+            language.GetMainFormText();
+            LoadText();
         }
 
         private void btnScreenshot_Click(object sender, EventArgs e)
@@ -83,6 +84,10 @@ namespace Projekt
                 settings.SetJSONSettings(settings);
             }
             this.Show();
+            if (settings.sendEmailAfterScreenshot)
+            {
+                emailClass.SendEmail(fromEmail, password, toEmail, subject);
+            }
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

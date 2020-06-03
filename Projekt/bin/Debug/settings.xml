@@ -9,4 +9,5 @@
   <description>false</description>
   <settingsFileType>1</settingsFileType>
   <selectedLanguage>ENG</selectedLanguage>
+  <sendEmailAfterScreenshot>false</sendEmailAfterScreenshot>
 </Settings>

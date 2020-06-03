@@ -46,6 +46,7 @@ namespace Projekt
         public string rbEnable { get; set; }
         public string rbDisable { get; set; }
         public string SaveChanges { get; set; }
+        public string SendEmailAfterScreenshot { get; set; }
 
         public string defaultDescription { get; set; }
         public string btnSendAsEmail { get; set; }
@@ -101,6 +102,7 @@ namespace Projekt
             rbEnable = "Enable";
             rbDisable = "Disable";
             SaveChanges = "Save Changes";
+            SendEmailAfterScreenshot = "Send image in email after screenshot";
             defaultDescription = "No description";
             btnSendAsEmail = "Send as email";
             fromEmail = "Your email:";
@@ -230,6 +232,7 @@ namespace Projekt
                 messageWarning = (string)jObject["messageWarning"];
                 messageQuestion = (string)jObject["messageQuestion"];
                 messageInformation = (string)jObject["messageInformation"];
+                SendEmailAfterScreenshot = (string)jObject["SendEmailAfterScreenshot"];
             }
         }
     }

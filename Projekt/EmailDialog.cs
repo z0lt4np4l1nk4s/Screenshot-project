@@ -83,7 +83,7 @@ namespace Projekt
             {
                 if (MessageBox.Show(language.messageSendWithoutSubject, language.messageQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    txtSubject.Text = PictureForm.picName;
+                    txtSubject.Text = EmailClass.picName;
                     return true;
                 }
                 else

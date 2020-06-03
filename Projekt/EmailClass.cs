@@ -16,17 +16,22 @@ namespace Projekt
     {
         LanguageClass language = new LanguageClass();
         public static string picPath;
+        public static string picName;
         
         public void SendEmail(string fromEmail, string password, string toEmail, string subject)
         {
             language.GetEmailDialogText();
             try
             {
+                if (PictureForm.picDescription == language.defaultDescription)
+                {
+                    PictureForm.picDescription = "";
+                }
                 MailMessage mail = new MailMessage(fromEmail, toEmail, subject, PictureForm.picDescription);
-                string fpath = picPath + PictureForm.picName;
+                string fpath = picPath + picName;
                 MemoryStream memoryStream = new MemoryStream();
                 ZipArchive zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create);
-                zipArchive.CreateEntryFromFile(fpath, PictureForm.picName);
+                zipArchive.CreateEntryFromFile(fpath, picName);
                 zipArchive.Dispose();
                 MemoryStream attachment = new MemoryStream(memoryStream.ToArray());
                 Attachment file = new Attachment(attachment, "attachment.zip", MediaTypeNames.Application.Zip);
