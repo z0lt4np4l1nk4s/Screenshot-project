@@ -28,49 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSaveF = new System.Windows.Forms.Label();
             this.lblSaveFolder = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.rbYes = new System.Windows.Forms.RadioButton();
             this.rbNo = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDeleteFiles = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblSecTimer = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.lblFileName = new System.Windows.Forms.Label();
             this.numSeconds = new System.Windows.Forms.NumericUpDown();
             this.s = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblSettings = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbEmail = new System.Windows.Forms.GroupBox();
+            this.txtSubject = new System.Windows.Forms.TextBox();
+            this.txtToEmail = new System.Windows.Forms.TextBox();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblYourEmail = new System.Windows.Forms.Label();
+            this.txtFromEmail = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.cbSendEmailAfterScreenshot = new System.Windows.Forms.CheckBox();
             this.cbSettingsFileType = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblSetFType = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbDescDisable = new System.Windows.Forms.RadioButton();
             this.rbDescEnable = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblFileType = new System.Windows.Forms.Label();
+            this.lblStartNumber = new System.Windows.Forms.Label();
             this.numStartNumber = new System.Windows.Forms.NumericUpDown();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSeconds)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.gbEmail.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblSaveF
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 94);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Save Folder:";
+            this.lblSaveF.AutoSize = true;
+            this.lblSaveF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaveF.Location = new System.Drawing.Point(26, 94);
+            this.lblSaveF.Name = "lblSaveF";
+            this.lblSaveF.Size = new System.Drawing.Size(98, 20);
+            this.lblSaveF.TabIndex = 0;
+            this.lblSaveF.Text = "Save Folder:";
             // 
             // lblSaveFolder
             // 
@@ -87,7 +101,7 @@
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowse.Location = new System.Drawing.Point(141, 88);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 32);
+            this.btnBrowse.Size = new System.Drawing.Size(89, 32);
             this.btnBrowse.TabIndex = 2;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -117,40 +131,40 @@
             this.rbNo.Text = "No";
             this.rbNo.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblDeleteFiles
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 157);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Delete all files from selected folder?";
+            this.lblDeleteFiles.AutoSize = true;
+            this.lblDeleteFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeleteFiles.Location = new System.Drawing.Point(26, 157);
+            this.lblDeleteFiles.Name = "lblDeleteFiles";
+            this.lblDeleteFiles.Size = new System.Drawing.Size(260, 20);
+            this.lblDeleteFiles.TabIndex = 5;
+            this.lblDeleteFiles.Text = "Delete all files from selected folder?";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbYes);
             this.groupBox1.Controls.Add(this.rbNo);
-            this.groupBox1.Location = new System.Drawing.Point(317, 142);
+            this.groupBox1.Location = new System.Drawing.Point(439, 142);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(177, 44);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
-            // label3
+            // lblSecTimer
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 223);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Seconds in timer:";
+            this.lblSecTimer.AutoSize = true;
+            this.lblSecTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecTimer.Location = new System.Drawing.Point(26, 216);
+            this.lblSecTimer.Name = "lblSecTimer";
+            this.lblSecTimer.Size = new System.Drawing.Size(131, 20);
+            this.lblSecTimer.TabIndex = 7;
+            this.lblSecTimer.Text = "Seconds in timer:";
             // 
             // txtFileName
             // 
             this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFileName.Location = new System.Drawing.Point(141, 25);
+            this.txtFileName.Location = new System.Drawing.Point(116, 25);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(175, 26);
             this.txtFileName.TabIndex = 8;
@@ -168,7 +182,7 @@
             // numSeconds
             // 
             this.numSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numSeconds.Location = new System.Drawing.Point(188, 221);
+            this.numSeconds.Location = new System.Drawing.Point(188, 214);
             this.numSeconds.Name = "numSeconds";
             this.numSeconds.Size = new System.Drawing.Size(175, 26);
             this.numSeconds.TabIndex = 10;
@@ -178,73 +192,190 @@
             // 
             this.s.AutoSize = true;
             this.s.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.s.Location = new System.Drawing.Point(371, 223);
+            this.s.Location = new System.Drawing.Point(371, 216);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(17, 20);
             this.s.TabIndex = 11;
             this.s.Text = "s";
             // 
-            // label4
+            // lblSettings
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(345, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 26);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Settings";
+            this.lblSettings.AutoSize = true;
+            this.lblSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSettings.Location = new System.Drawing.Point(430, 9);
+            this.lblSettings.Name = "lblSettings";
+            this.lblSettings.Size = new System.Drawing.Size(99, 26);
+            this.lblSettings.TabIndex = 12;
+            this.lblSettings.Text = "Settings";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.gbEmail);
+            this.groupBox2.Controls.Add(this.cbSendEmailAfterScreenshot);
             this.groupBox2.Controls.Add(this.cbSettingsFileType);
-            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.lblSetFType);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.lblDesc);
             this.groupBox2.Controls.Add(this.cbType);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lblFileType);
+            this.groupBox2.Controls.Add(this.lblStartNumber);
             this.groupBox2.Controls.Add(this.numStartNumber);
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.lblSecTimer);
             this.groupBox2.Controls.Add(this.numSeconds);
             this.groupBox2.Controls.Add(this.lblFileName);
             this.groupBox2.Controls.Add(this.s);
             this.groupBox2.Controls.Add(this.txtFileName);
-            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lblDeleteFiles);
             this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.lblSaveF);
             this.groupBox2.Controls.Add(this.lblSaveFolder);
             this.groupBox2.Controls.Add(this.btnBrowse);
             this.groupBox2.Location = new System.Drawing.Point(12, 52);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(776, 339);
+            this.groupBox2.Size = new System.Drawing.Size(960, 438);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // gbEmail
+            // 
+            this.gbEmail.Controls.Add(this.txtSubject);
+            this.gbEmail.Controls.Add(this.txtToEmail);
+            this.gbEmail.Controls.Add(this.lblInfo);
+            this.gbEmail.Controls.Add(this.lblPassword);
+            this.gbEmail.Controls.Add(this.lblYourEmail);
+            this.gbEmail.Controls.Add(this.txtFromEmail);
+            this.gbEmail.Controls.Add(this.txtPassword);
+            this.gbEmail.Controls.Add(this.lblSubject);
+            this.gbEmail.Controls.Add(this.lblTo);
+            this.gbEmail.Location = new System.Drawing.Point(511, 251);
+            this.gbEmail.Name = "gbEmail";
+            this.gbEmail.Size = new System.Drawing.Size(443, 168);
+            this.gbEmail.TabIndex = 42;
+            this.gbEmail.TabStop = false;
+            this.gbEmail.Visible = false;
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubject.Location = new System.Drawing.Point(113, 118);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(290, 26);
+            this.txtSubject.TabIndex = 45;
+            // 
+            // txtToEmail
+            // 
+            this.txtToEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtToEmail.Location = new System.Drawing.Point(113, 86);
+            this.txtToEmail.Name = "txtToEmail";
+            this.txtToEmail.Size = new System.Drawing.Size(290, 26);
+            this.txtToEmail.TabIndex = 44;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Image = ((System.Drawing.Image)(resources.GetObject("lblInfo.Image")));
+            this.lblInfo.Location = new System.Drawing.Point(411, 22);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(25, 24);
+            this.lblInfo.TabIndex = 46;
+            this.lblInfo.Text = "   ";
+            this.ToolTip.SetToolTip(this.lblInfo, "Use your AAI@EduHr email!");
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(19, 57);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(82, 20);
+            this.lblPassword.TabIndex = 50;
+            this.lblPassword.Text = "Password:";
+            // 
+            // lblYourEmail
+            // 
+            this.lblYourEmail.AutoSize = true;
+            this.lblYourEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourEmail.Location = new System.Drawing.Point(19, 25);
+            this.lblYourEmail.Name = "lblYourEmail";
+            this.lblYourEmail.Size = new System.Drawing.Size(88, 20);
+            this.lblYourEmail.TabIndex = 49;
+            this.lblYourEmail.Text = "Your email:";
+            // 
+            // txtFromEmail
+            // 
+            this.txtFromEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFromEmail.Location = new System.Drawing.Point(113, 22);
+            this.txtFromEmail.Name = "txtFromEmail";
+            this.txtFromEmail.Size = new System.Drawing.Size(290, 26);
+            this.txtFromEmail.TabIndex = 42;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(113, 54);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(290, 26);
+            this.txtPassword.TabIndex = 43;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.Location = new System.Drawing.Point(19, 121);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(67, 20);
+            this.lblSubject.TabIndex = 48;
+            this.lblSubject.Text = "Subject:";
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTo.Location = new System.Drawing.Point(19, 89);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(31, 20);
+            this.lblTo.TabIndex = 47;
+            this.lblTo.Text = "To:";
+            // 
+            // cbSendEmailAfterScreenshot
+            // 
+            this.cbSendEmailAfterScreenshot.AutoSize = true;
+            this.cbSendEmailAfterScreenshot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSendEmailAfterScreenshot.Location = new System.Drawing.Point(511, 216);
+            this.cbSendEmailAfterScreenshot.Name = "cbSendEmailAfterScreenshot";
+            this.cbSendEmailAfterScreenshot.Size = new System.Drawing.Size(290, 24);
+            this.cbSendEmailAfterScreenshot.TabIndex = 28;
+            this.cbSendEmailAfterScreenshot.Text = "Send image in email after screenshot";
+            this.cbSendEmailAfterScreenshot.UseVisualStyleBackColor = true;
+            this.cbSendEmailAfterScreenshot.CheckedChanged += new System.EventHandler(this.cbSendEmailAfterScreenshot_CheckedChanged);
             // 
             // cbSettingsFileType
             // 
             this.cbSettingsFileType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSettingsFileType.FormattingEnabled = true;
-            this.cbSettingsFileType.Location = new System.Drawing.Point(579, 219);
+            this.cbSettingsFileType.Location = new System.Drawing.Point(190, 391);
             this.cbSettingsFileType.Name = "cbSettingsFileType";
             this.cbSettingsFileType.Size = new System.Drawing.Size(173, 28);
             this.cbSettingsFileType.TabIndex = 26;
             this.cbSettingsFileType.SelectedIndexChanged += new System.EventHandler(this.cbSettingsFileType_SelectedIndexChanged);
             // 
-            // label8
+            // lblSetFType
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(441, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(130, 20);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "Settings file type:";
+            this.lblSetFType.AutoSize = true;
+            this.lblSetFType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSetFType.Location = new System.Drawing.Point(26, 395);
+            this.lblSetFType.Name = "lblSetFType";
+            this.lblSetFType.Size = new System.Drawing.Size(130, 20);
+            this.lblSetFType.TabIndex = 25;
+            this.lblSetFType.Text = "Settings file type:";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.rbDescDisable);
             this.groupBox3.Controls.Add(this.rbDescEnable);
-            this.groupBox3.Location = new System.Drawing.Point(530, 274);
+            this.groupBox3.Location = new System.Drawing.Point(121, 322);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 47);
             this.groupBox3.TabIndex = 23;
@@ -274,44 +405,44 @@
             this.rbDescEnable.Text = "Enable";
             this.rbDescEnable.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // lblDesc
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(435, 287);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 20);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Description";
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(26, 335);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(93, 20);
+            this.lblDesc.TabIndex = 22;
+            this.lblDesc.Text = "Description:";
             // 
             // cbType
             // 
             this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(141, 287);
+            this.cbType.Location = new System.Drawing.Point(150, 275);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(175, 28);
             this.cbType.TabIndex = 15;
             // 
-            // label6
+            // lblFileType
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 290);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "File Type:";
+            this.lblFileType.AutoSize = true;
+            this.lblFileType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileType.Location = new System.Drawing.Point(26, 278);
+            this.lblFileType.Name = "lblFileType";
+            this.lblFileType.Size = new System.Drawing.Size(76, 20);
+            this.lblFileType.TabIndex = 14;
+            this.lblFileType.Text = "File Type:";
             // 
-            // label5
+            // lblStartNumber
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(416, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Start Number:";
+            this.lblStartNumber.AutoSize = true;
+            this.lblStartNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartNumber.Location = new System.Drawing.Point(463, 28);
+            this.lblStartNumber.Name = "lblStartNumber";
+            this.lblStartNumber.Size = new System.Drawing.Size(108, 20);
+            this.lblStartNumber.TabIndex = 13;
+            this.lblStartNumber.Text = "Start Number:";
             // 
             // numStartNumber
             // 
@@ -325,9 +456,9 @@
             // btnSaveChanges
             // 
             this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.Location = new System.Drawing.Point(306, 398);
+            this.btnSaveChanges.Location = new System.Drawing.Point(385, 509);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(174, 40);
+            this.btnSaveChanges.Size = new System.Drawing.Size(230, 40);
             this.btnSaveChanges.TabIndex = 14;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
@@ -348,11 +479,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblSettings);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -364,6 +495,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSeconds)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.gbEmail.ResumeLayout(false);
+            this.gbEmail.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).EndInit();
@@ -374,31 +507,43 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSaveF;
         private System.Windows.Forms.Label lblSaveFolder;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.RadioButton rbYes;
         private System.Windows.Forms.RadioButton rbNo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDeleteFiles;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblSecTimer;
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.NumericUpDown numSeconds;
         private System.Windows.Forms.Label s;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblSettings;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblStartNumber;
         private System.Windows.Forms.NumericUpDown numStartNumber;
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblFileType;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton rbDescDisable;
         private System.Windows.Forms.RadioButton rbDescEnable;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.Label lblSetFType;
         private System.Windows.Forms.ComboBox cbSettingsFileType;
+        private System.Windows.Forms.CheckBox cbSendEmailAfterScreenshot;
+        private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.GroupBox gbEmail;
+        private System.Windows.Forms.TextBox txtSubject;
+        private System.Windows.Forms.TextBox txtToEmail;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblYourEmail;
+        private System.Windows.Forms.TextBox txtFromEmail;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblSubject;
+        private System.Windows.Forms.Label lblTo;
     }
 }

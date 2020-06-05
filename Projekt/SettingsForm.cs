@@ -14,10 +14,15 @@ namespace Projekt
     public partial class SettingsForm : Form
     {
         Settings settings = new Settings();
+        LanguageClass language = new LanguageClass();
+        EmailClass emailClass = new EmailClass();
         bool sIChanged = false;
         public SettingsForm()
         {
             InitializeComponent();
+            language.GetSettingsFormText();
+            language.GetEmailDialogText();
+            LoadText();
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -38,59 +43,114 @@ namespace Projekt
             cbType.Items.Add("JPEG (*.jpg)");
             cbType.Items.Add("BITMAP (*.bmp)");
             cbType.Items.Add("PNG (*.png)");
+            cbType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbSettingsFileType.Items.Add("JSON");
             cbSettingsFileType.Items.Add("XML");
+            cbSettingsFileType.DropDownStyle = ComboBoxStyle.DropDownList;
             settings.GetJSONSettings();
             if (settings.settingsFileType == 1)
             {
                 settings.GetXMLSettings();
             }
+            emailClass.GetEmailDetails();
             LoadDetails();
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            if (txtFileName.Text != "")
+            bool message = true;
+            if (txtFileName.Text == "")
             {
-                if (rbYes.Checked)
+                MessageBox.Show(language.messageAllFields, language.messageWarning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                message = false;
+            }
+            if (cbSendEmailAfterScreenshot.Checked && message)
+            {
+                if (txtFromEmail.Text != "" && txtPassword.Text != "" && txtToEmail.Text != "")
                 {
-                    if (MessageBox.Show("Are you sure you want delete all files from selected folder?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    MainForm.fromEmail = txtFromEmail.Text;
+                    MainForm.password = txtPassword.Text;
+                    MainForm.toEmail = txtToEmail.Text;
+                    if (string.IsNullOrEmpty(txtSubject.Text))
                     {
-                        MessageBox.Show("Changes saved succesfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        SaveDetails();
-                        DirectoryInfo di = new DirectoryInfo(lblSaveFolder.Text);
-                        foreach (FileInfo fi in di.GetFiles())
-                        {
-                            fi.Delete();
-                        }
+                        MainForm.subject = "";
                     }
+                    else
+                    {
+                        MainForm.subject = txtSubject.Text;
+                    }
+                    emailClass.SaveEmailDetails(txtFromEmail.Text, txtPassword.Text, txtToEmail.Text, txtSubject.Text);
                 }
                 else
                 {
-                    MessageBox.Show("Changes saved succesfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    SaveDetails();
+                    MessageBox.Show(language.messageAllFields, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    message = false;
                 }
             }
-            else
+            if (rbNo.Checked && message)
             {
-                MessageBox.Show("All fields must be filled!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(language.messageChangesSaved, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SaveDetails();
+            }
+            if (rbYes.Checked)
+            {
+                if (MessageBox.Show(language.messageAreYouSureToDelete, language.messageWarning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    MessageBox.Show(language.messageChangesSaved, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SaveDetails();
+                    DirectoryInfo di = new DirectoryInfo(lblSaveFolder.Text);
+                    foreach (FileInfo fi in di.GetFiles())
+                    {
+                        fi.Delete();
+                    }
+                }
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (txtFileName.Text != settings.fName || numStartNumber.Value != settings.numb || lblSaveFolder.Text != settings.path || rbYes.Checked != settings.check || numSeconds.Value != settings.seconds || cbType.SelectedIndex != settings.sIndex || rbDescEnable.Checked != settings.description || cbSettingsFileType.SelectedIndex != settings.settingsFileType)
+            if (cbSendEmailAfterScreenshot.Checked)
             {
-                if (MessageBox.Show("You have some unsaved changes, do you want to save them?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (txtFromEmail.Text != "" && txtPassword.Text != "" && txtToEmail.Text != "")
                 {
-                    SaveDetails();
+                    MainForm.fromEmail = txtFromEmail.Text;
+                    MainForm.password = txtPassword.Text;
+                    MainForm.toEmail = txtToEmail.Text;
+                    if (string.IsNullOrEmpty(txtSubject.Text))
+                    {
+                        MainForm.subject = "";
+                    }
+                    else
+                    {
+                        MainForm.subject = txtSubject.Text;
+                    }
+                    emailClass.SaveEmailDetails(txtFromEmail.Text, txtPassword.Text, txtToEmail.Text, txtSubject.Text);
+                    this.Hide();
+                    MainForm.mainForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show(language.messageAllFields, language.messageInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            this.Hide();
-            MainForm.mainForm.Show();
+            else if (txtFileName.Text != settings.fName || numStartNumber.Value != settings.numb || lblSaveFolder.Text != settings.path || rbYes.Checked != settings.check || numSeconds.Value != settings.seconds || cbType.SelectedIndex != settings.sIndex || rbDescEnable.Checked != settings.description || cbSettingsFileType.SelectedIndex != settings.settingsFileType || cbSendEmailAfterScreenshot.Checked != settings.sendEmailAfterScreenshot)
+            {
+                if (MessageBox.Show(language.messageUnsavedChanges, language.messageQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SaveDetails();
+                    this.Hide();
+                    MainForm.mainForm.Show();
+                }
+            }
+            else
+            {
+                this.Hide();
+                MainForm.mainForm.Show();
+            }
+            
+            
         }
         
-
         private void SaveDetails()
         {
             settings.fName = txtFileName.Text;
@@ -101,6 +161,7 @@ namespace Projekt
             settings.sIndex = cbType.SelectedIndex;
             settings.description = rbDescEnable.Checked;
             settings.settingsFileType = cbSettingsFileType.SelectedIndex;
+            settings.sendEmailAfterScreenshot = cbSendEmailAfterScreenshot.Checked;
             if(settings.settingsFileType == 0)
             {
                 settings.SetJSONSettings(settings);
@@ -148,6 +209,11 @@ namespace Projekt
                 rbDescDisable.Checked = true;
             }
             cbSettingsFileType.SelectedItem = cbSettingsFileType.Items[settings.settingsFileType];
+            cbSendEmailAfterScreenshot.Checked = settings.sendEmailAfterScreenshot;
+            txtFromEmail.Text = MainForm.fromEmail;
+            txtPassword.Text = MainForm.password;
+            txtToEmail.Text = MainForm.toEmail;
+            txtSubject.Text = MainForm.subject;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -159,22 +225,50 @@ namespace Projekt
         {
             if (sIChanged)
             {
+                settings.GetJSONSettings();
                 settings.settingsFileType = cbSettingsFileType.SelectedIndex;
-                if (cbSettingsFileType.SelectedIndex == 1)
-                {
-                    settings.GetJSONSettings();
-                    settings.settingsFileType = cbSettingsFileType.SelectedIndex;
-                    settings.SetJSONSettings(settings);
-                }
-                else
-                {
-                    settings.GetJSONSettings();
-                    settings.settingsFileType = cbSettingsFileType.SelectedIndex;
-                    settings.SetJSONSettings(settings);
-                }
+                settings.SetJSONSettings(settings);
                 LoadDetails();
             }
             sIChanged = true;
+        }
+
+        private void cbSendEmailAfterScreenshot_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbSendEmailAfterScreenshot.Checked)
+            {
+                gbEmail.Visible = true;
+            }
+            else
+            {
+                gbEmail.Visible = false;
+            }
+        }
+
+        private void LoadText()
+        {
+            btnBack.Text = language.btnBack;
+            lblSettings.Text = language.Settings;
+            lblFileName.Text = language.FileName;
+            lblStartNumber.Text = language.StartNumber;
+            lblSaveF.Text = language.SaveFolder;
+            btnBrowse.Text = language.btnBrowse;
+            lblDeleteFiles.Text = language.DeleteAllFiles;
+            rbYes.Text = language.rbYes;
+            rbNo.Text = language.rbNo;
+            lblSecTimer.Text = language.secInTimer;
+            lblSetFType.Text = language.settingFType;
+            lblFileType.Text = language.FType;
+            lblDesc.Text = language.Description;
+            rbDescEnable.Text = language.rbEnable;
+            rbDescDisable.Text = language.rbDisable;
+            btnSaveChanges.Text = language.SaveChanges;
+            ToolTip.SetToolTip(lblInfo, language.info);
+            lblYourEmail.Text = language.fromEmail;
+            lblPassword.Text = language.password;
+            lblTo.Text = language.toEmail;
+            lblSubject.Text = language.subject;
+            cbSendEmailAfterScreenshot.Text = language.SendEmailAfterScreenshot;
         }
     }
 }

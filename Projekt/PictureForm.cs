@@ -13,9 +13,16 @@ namespace Projekt
     public partial class PictureForm : Form
     {
         Settings settings = new Settings();
+        LanguageClass language = new LanguageClass();
+        public static string picDescription, picName;
         public PictureForm()
         {
             InitializeComponent();
+            language.GetPictureFormText();
+            btnBack.Text = language.btnBack;
+            btnSendAsEmail.Text = language.btnSendAsEmail;
+            lblDescr.Text = language.Description;
+            lblDescription.Text = language.defaultDescription;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -26,6 +33,7 @@ namespace Projekt
 
         private void PictureForm_Load(object sender, EventArgs e)
         {
+            Description description = new Description();
             try
             {
                 settings.GetJSONSettings();
@@ -33,14 +41,22 @@ namespace Projekt
                 {
                     settings.GetXMLSettings();
                 }
-                Description.GetDescriptionFromAFile();
+                description.GetDescriptionFromAFile();
                 lblFileName.Text = ImageList.SelectedImageName;
-                lblDescription.Text = Description.SelectedPictureDescription.Replace(ImageList.SelectedImageName + " - ", ""); 
+                if (Description.SelectedPictureDescription.Contains(settings.path + ImageList.SelectedImageName))
+                {
+                    lblDescription.Text = Description.SelectedPictureDescription.Replace(settings.path + ImageList.SelectedImageName + " - ", "");
+                    EmailClass.picDescription = lblDescription.Text;
+                }
+                else
+                {
+                    lblDescription.Text = language.defaultDescription;
+                }
                 pbScreenshot.Image = Image.FromFile(settings.path + ImageList.SelectedImageName);
             }
             catch
             {
-                MessageBox.Show("Picture not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(language.messagePictureNotFound, language.messageError, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -48,6 +64,22 @@ namespace Projekt
         private void PictureForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnSendAsEmail_Click(object sender, EventArgs e)
+        {
+            btnSendAsEmail.Enabled = false;
+            btnBack.Enabled = false;
+            picDescription = lblDescription.Text;
+            EmailClass.picName = lblFileName.Text;
+            EmailDialog email = new EmailDialog();
+            email.Show();
+        }
+
+        private void PictureForm_Activated(object sender, EventArgs e)
+        {
+            btnSendAsEmail.Enabled = true;
+            btnBack.Enabled = true;
         }
     }
 }

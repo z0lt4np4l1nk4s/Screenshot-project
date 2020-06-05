@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.pbScreenshot = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDescr = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblFileName = new System.Windows.Forms.Label();
+            this.btnSendAsEmail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbScreenshot)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,15 +46,15 @@
             this.pbScreenshot.TabIndex = 0;
             this.pbScreenshot.TabStop = false;
             // 
-            // label2
+            // lblDescr
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 421);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Description:";
+            this.lblDescr.AutoSize = true;
+            this.lblDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescr.Location = new System.Drawing.Point(8, 421);
+            this.lblDescr.Name = "lblDescr";
+            this.lblDescr.Size = new System.Drawing.Size(93, 20);
+            this.lblDescr.TabIndex = 2;
+            this.lblDescr.Text = "Description:";
             // 
             // btnBack
             // 
@@ -86,19 +87,32 @@
             this.lblFileName.TabIndex = 18;
             this.lblFileName.Text = "filename...";
             // 
+            // btnSendAsEmail
+            // 
+            this.btnSendAsEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendAsEmail.Location = new System.Drawing.Point(633, 12);
+            this.btnSendAsEmail.Name = "btnSendAsEmail";
+            this.btnSendAsEmail.Size = new System.Drawing.Size(155, 37);
+            this.btnSendAsEmail.TabIndex = 19;
+            this.btnSendAsEmail.Text = "Send as email";
+            this.btnSendAsEmail.UseVisualStyleBackColor = true;
+            this.btnSendAsEmail.Click += new System.EventHandler(this.btnSendAsEmail_Click);
+            // 
             // PictureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSendAsEmail);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDescr);
             this.Controls.Add(this.pbScreenshot);
             this.Name = "PictureForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PictureForm";
+            this.Activated += new System.EventHandler(this.PictureForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PictureForm_FormClosed);
             this.Load += new System.EventHandler(this.PictureForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbScreenshot)).EndInit();
@@ -110,9 +124,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbScreenshot;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDescr;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.Button btnSendAsEmail;
     }
 }

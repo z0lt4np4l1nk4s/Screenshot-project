@@ -23,6 +23,8 @@ namespace Projekt
         public int sIndex { get; set; }
         public bool description { get; set; }
         public int settingsFileType { get; set; }
+        public string selectedLanguage { get; set; }
+        public bool sendEmailAfterScreenshot { get; set; }
         public Settings()
         {
             fName = "Untitled";
@@ -33,6 +35,8 @@ namespace Projekt
             sIndex = 0;
             description = false;
             settingsFileType = 0;
+            selectedLanguage = "ENG";
+            sendEmailAfterScreenshot = false;
         }
 
         public void SetJSONSettings(Settings settings)
@@ -56,6 +60,8 @@ namespace Projekt
                     sIndex = (int)jObject["sIndex"];
                     description = (bool)jObject["description"];
                     settingsFileType = (int)jObject["settingsFileType"];
+                    selectedLanguage = (string)jObject["selectedLanguage"];
+                    sendEmailAfterScreenshot = (bool)jObject["sendEmailAfterScreenshot"];
                 }
                 catch
                 {
@@ -94,6 +100,8 @@ namespace Projekt
                     sIndex = int.Parse(element.Element("sIndex").Value);
                     description = bool.Parse(element.Element("description").Value);
                     settingsFileType = int.Parse(element.Element("settingsFileType").Value);
+                    selectedLanguage = element.Element("selectedLanguage").Value;
+                    sendEmailAfterScreenshot = bool.Parse(element.Element("sendEmailAfterScreenshot").Value);
                 }
                 catch
                 {
