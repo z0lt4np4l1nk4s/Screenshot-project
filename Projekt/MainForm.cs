@@ -86,7 +86,11 @@ namespace Projekt
             this.Show();
             if (settings.sendEmailAfterScreenshot)
             {
-                emailClass.SendEmail(fromEmail, password, toEmail, subject);
+                emailClass.GetEmailDetails();
+                if (fromEmail != "")
+                {
+                    emailClass.SendEmail(fromEmail, password, toEmail, subject);
+                }
             }
         }
 
